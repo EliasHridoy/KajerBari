@@ -1,7 +1,7 @@
 @model KazerBariWeb.Models.BannerSave
 
 @{
-    Layout = null; 
+    Layout = null;
     var i = 1;
 }
 
@@ -26,12 +26,15 @@
 
         <div class="row  bg-dark">
             <nav class="navbar navbar-expand-lg " id="top">
-                <a class="navbar-brand" asp-action="Dashboard"><img src="/img/logo.jpg"
-                        style="height: 70px; width: 70px; margin-left: 20%;"><b style="color:whitesmoke;">
-                        KajerBari</b></a>
+                <a class="navbar-brand" asp-action="Dashboard">
+                    <img src="/img/logo.jpg"
+                         style="height: 70px; width: 70px; margin-left: 20%;"><b style="color:whitesmoke;">
+                        KajerBari
+                    </b>
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -83,13 +86,6 @@
                 </h5>
                 <a class="nav-link  ml-4" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab"
                    aria-controls="v-pills-order" aria-selected="false" style="color: white;">Order Summary</a>
-
-                <h5 style="color: yellowgreen;margin-left: 8%;">
-                    <i class="fa fa-shopping-cart "
-                       style="color: yellowgreen"></i>&nbsp;Logout
-                </h5>
-                <a class="nav-link  ml-4" asp-action="Logoff" role="tab"
-                   aria-controls="v-pills-order" aria-selected="false" style="color: white;">Logout</a>
             </div>
         </div>
         <div class="col-md-10">
@@ -97,108 +93,109 @@
 
 
             <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
-            <section>
-                <div class="container">
-                    <div class="col-md-12 mt-5">
-                        <h4 style="color: orange;margin-left: 40%;">Order Summary</h4>
-                      
-                    </div>
-                    <div class="row justify-content-center">
-                        <div class="col-6 table-responsive">
-                            <table class="table table-bordered mt-3">
-                                <thead style="background-color:orange; text-align: center;">
-                                  <tr>
-                                    <th>Order Id</th>
-                                    <th>Show Detaila</th>
-                                  </tr>
-                                </thead>
-                                <tbody style=" text-align: center;">
-                                        
-                                      @foreach (var item in ViewBag.order)
-                                      {<tr>
-                                          <td>@item.Id</td>
-                                        <td>
-                                            <input hidden value="@item.Id" >
-                                            <button onclick="orderDetails(@item.Id)" type="button" class="btn btn-danger"  data-toggle="modal" data-target="#staticBackdrop4">Show</button>
-                                        </td>
-                                                                          </tr>
+                <section>
+                    <div class="container">
+                        <div class="col-md-12 mt-5">
+                            <h4 style="color: orange;margin-left: 40%;">Order Summary</h4>
 
-                                      }
-                                    
-                                </tbody>
-                              </table>
                         </div>
-            
-                    </div>
-                </div>
-            </section>
+                        <div class="row justify-content-center">
+                            <div class="col-6 table-responsive">
+                                <table class="table table-bordered mt-3">
+                                    <thead style="background-color:orange; text-align: center;">
+                                        <tr>
+                                            <th>Order Id</th>
+                                            <th>Show Detaila</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody style=" text-align: center;">
 
-        @*Popup sectiono started*@
-            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content ">
-                    <div class="modal-header">
-                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 38%;color: orange;">Order Summary</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                      </div>
-                    <div class="modal-body">
-                        <form>
-                          <div class="form-row col-md-12">
-                            <div class="form-group col-md-6">
-                                
-                                  <h4 style="padding-top: 5%;padding-left: 5%;color: orange;">Schedule </h4>
-                                  <div class="form-group col-md-7">
-                                    <h6 style="color: yellowgreen;" class="ml-2">Date:</h6>
-                                    <span id="orderDate" class="cart-total-title ml-2">12.12.2020</span>
-                                  </div>
-                                          
-        
-                                  <h4 style="padding-top: 3%;padding-left: 5%;color: orange;">Contact Infomation </h4>
-                                     <div class="form-group col-md-7">
-                                      <h6 style="color: yellowgreen;" class="ml-2">Name:</h6>
-                                        <span id="name" class="cart-total-title ml-2">Mr.X</span>
-                                        <h6 style="color: yellowgreen;" class="ml-2 mt-1">Phone Number:</h6>
-                                         <span id="phoneNumber" class="cart-total-title ml-2">01888229394</span>
-                                         <h6 style="color: yellowgreen;" class="ml-2 mt-1">Address:</h6>
-                                         <span id="address" class="cart-total-title ml-2">Nasirabad</span>
-                                         <h6 style="color: yellowgreen;" class="ml-2 mt-1">Area:</h6>
-                                         <span id="area" class="cart-total-title ml-2">Nasirabad</span>
-                                    </div>
-                                   
-                                </div>
-                                <div id="orderDetails" class="form-group col-md-4 mt-2">
-                                    <h4 class="mt-3 ml-2"style="color:orange">Order Details</h4> <br>
-                                    <h6 style="color: grey;" class="ml-3">LCD/LED TV Repair sERVICE</h6>
-                                    <div> 
-                                      <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
-                                      <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span>
-                                    </div>
-                                    <div> 
-                                      <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
-                                      <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span>
-                                    </div>
-                                    <hr>
-                                    <div class="cart-total mt-3">
-                                      <span class="cart-total-title col-md-2">Total</span>
-                                      <span class="cart-total-price col-md-2" style="margin-left: 18%;">$399.97</span>
-                                      <span class="cart-size cart-column col-md-2">Discount</span>
-                                      <span class="cart-price cart-column col-md-2 ml-3" >$19.99</span>
-                                    </div>
-                                    <hr>
-                                    <div class="cart-total mt-3">
-                                      <strong class="cart-total-title col-md-2">SubTotal</strong>
-                                      <span class="cart-total-price col-md-2 ml-3" >$399.97</span>
-                                    </div>
-                               
-                                  </div>
-            
-            </div>
-                      
-                      </form> 
+                                        @foreach (var item in ViewBag.order)
+                                        {
+                                            <tr>
+                                                <td>@item.Id</td>
+                                                <td>
+                                                    <input hidden value="@item.Id">
+                                                    <button onclick="orderDetails(@item.Id)" type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop4">Show</button>
+                                                </td>
+                                            </tr>
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
                     </div>
-                  </div>
+                </section>
+
+                @*Popup sectiono started*@
+                <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content ">
+                            <div class="modal-header">
+                                <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 38%;color: orange;">Order Summary</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-row col-md-12">
+                                        <div class="form-group col-md-6">
+
+                                            <h4 style="padding-top: 5%;padding-left: 5%;color: orange;">Schedule </h4>
+                                            <div class="form-group col-md-7">
+                                                <h6 style="color: yellowgreen;" class="ml-2">Date:</h6>
+                                                <span id="orderDate" class="cart-total-title ml-2">12.12.2020</span>
+                                            </div>
+
+
+                                            <h4 style="padding-top: 3%;padding-left: 5%;color: orange;">Contact Infomation </h4>
+                                            <div class="form-group col-md-7">
+                                                <h6 style="color: yellowgreen;" class="ml-2">Name:</h6>
+                                                <span id="name" class="cart-total-title ml-2">Mr.X</span>
+                                                <h6 style="color: yellowgreen;" class="ml-2 mt-1">Phone Number:</h6>
+                                                <span id="phoneNumber" class="cart-total-title ml-2">01888229394</span>
+                                                <h6 style="color: yellowgreen;" class="ml-2 mt-1">Address:</h6>
+                                                <span id="address" class="cart-total-title ml-2">Nasirabad</span>
+                                                <h6 style="color: yellowgreen;" class="ml-2 mt-1">Area:</h6>
+                                                <span id="area" class="cart-total-title ml-2">Nasirabad</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group col-md-4 mt-2">
+                                            <h4 class="mt-3 ml-2" style="color:orange">Order Details</h4> <br>
+                                            @* <h6 style="color: grey;" class="ml-3">LCD/LED TV Repair sERVICE</h6> *@
+                                            <div id="orderDetails">
+                                                @* <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
+                                                    <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span> *@
+                                            </div>
+                                            @*  <div>
+                                                  <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
+                                                  <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span>
+                                                </div> *@
+                                            <hr>
+                                            @* <div class="cart-total mt-3">
+                                                  <span class="cart-total-title col-md-2">Total</span>
+                                                  <span class="cart-total-price col-md-2" style="margin-left: 18%;">$399.97</span>
+                                                  <span class="cart-size cart-column col-md-2">Discount</span>
+                                                  <span class="cart-price cart-column col-md-2 ml-3" >$19.99</span>
+                                                </div>
+                                                <hr> *@
+                                            <div class="cart-total mt-3">
+                                                <strong class="cart-total-title col-md-2">Total</strong>
+                                                <span id="subtotal" class="cart-total-price col-md-2 ml-3">$399.97</span>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
 
 
@@ -211,7 +208,7 @@
 
     @* add bannr *@
     <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog ">
             <div class="modal-content">
                 <div class="modal-header">
@@ -224,7 +221,7 @@
                     <form enctype="multipart/form-data" asp-action="AddPostBanner">
                         <div class="form-row col-md-12">
                             <div class=" col-md-8 ">
-                                 
+
                                 <div class="form-group">
                                     <label for="input-banner-img">Banner</label>
                                     <input asp-for="@Model.Banner" class="form-control-file" id="input-banner-img">
@@ -251,7 +248,7 @@
 
     <script type="text/javascript">
 
-    var orderId; // global variable
+        var orderId; // global variable
         function orderDetails(id) {
             orderId = id;
 
@@ -267,20 +264,16 @@
                 document.getElementById('phoneNumber').innerHTML = data.mobileNo;
                 document.getElementById('address').innerHTML = data.address;
                 document.getElementById('area').innerHTML = data.area;
-                var orderinformation = '';
                 var orderDetails = '';
                 $("#orderDetails").empty();
                 $.each(data.orderedServices, function (i, package) {
 
-                    var orderDate = package[i].Id;
-                    orderinformation = '<h6 style="color: yellowgreen;" class="ml-2">Name:</h6><span class="cart-total-title ml-2">Mr.X</span><h6 style="color: yellowgreen;" class="ml-2 mt-1">Phone Number:</h6><span class="cart-total-title ml-2">01888229394</span><h6 style="color: yellowgreen;" class="ml-2 mt-1">Address:</h6><span class="cart-total-title ml-2">Nasirabad</span><h6 style="color: yellowgreen;" class="ml-2 mt-1">Area:</h6><span class="cart-total-title ml-2">Nasirabad</span>';
-
-                    orderDetails = '';
+                    orderDetails += ' <div> <span class="cart-size cart-column col-md-2"style="color:grey">' + package.package.name + '</span><span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$' + package.package.price + '</span></div>';
 
                 });
-                document.getElementById('orderDate').innerHTML = data.Date;
-                $('#contactInformation').html(orderinformation);
                 $('#orderDetails').html(orderDetails);
+                document.getElementById('subtotal').innerHTML = data.subtotal;
+
             });
         }
     </script>
