@@ -26,7 +26,7 @@
 
         <div class="row  bg-dark">
             <nav class="navbar navbar-expand-lg " id="top">
-                <a class="navbar-brand" asp-action="Dashboard">
+                <a class="navbar-brand" asp-action="Dashboard" asp-controller="Admin">
                     <img src="/img/logo.jpg"
                          style="height: 70px; width: 70px; margin-left: 20%;"><b style="color:whitesmoke;">
                         KajerBari
@@ -42,7 +42,7 @@
                     <ul class="navbar-nav mr-auto">
 
                         <li class="nav-item active">
-                            <a class="nav-item nav-link" href="index.html"></a>
+                            <a class="nav-item nav-link" asp-action="Dashboard" asp-controller="Admin"></a>
                         </li>
                 </div>
             </nav>
@@ -53,7 +53,7 @@
         <div class="col-md-2">
             <div class="nav flex-column nav-pills bg-dark pl-2 pt-2" id="v-pills-tab" role="tablist"
                  aria-orientation="vertical" style="height: 129%">
-                <a class="nav-link" href="#">
+                <a class="nav-link" asp-action="Dashboard" asp-controller="Admin">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <h4><b style="color:yellowgreen;padding-left: 3%;">Dashboard</b></h4><br>
                 </a>
@@ -92,7 +92,7 @@
 
 
 
-            <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+           
                 <section>
                     <div class="container">
                         <div class="col-md-12 mt-5">
@@ -196,7 +196,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+           
 
 
         </div>

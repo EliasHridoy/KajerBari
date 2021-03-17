@@ -1,106 +1,18 @@
 @model KazerBariWeb.Models.BannerSave
 
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/responsive.css">
-    <link rel="stylesheet" href="/css/responsivemembers.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-    <script src="/store.js" async></script>
-    <title>KajerBari</title>
-</head>
-
-<body>
-    <header>
-
-        <div class="row  bg-dark">
-            <nav class="navbar navbar-expand-lg " id="top">
-                <a class="navbar-brand" asp-action="Dashboard"><img src="/img/logo.jpg"
-                        style="height: 70px; width: 70px; margin-left: 20%;"><b style="color:whitesmoke;">
-                        KajerBari</b></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                        <li class="nav-item active">
-                            <a class="nav-item nav-link" href="index.html"></a>
-                        </li>
-                </div>
-            </nav>
-        </div>
-
-    </header>
-    <div class="row ">
-        <div class="col-md-2">
-            <div class="nav flex-column nav-pills bg-dark pl-2 pt-2" id="v-pills-tab" role="tablist"
-                 aria-orientation="vertical" style="height: 129%">
-                <a class="nav-link" href="#">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <h4><b style="color:yellowgreen;padding-left: 3%;">Dashboard</b></h4><br>
-                </a>
-                <h5 style="color: yellowgreen;margin-left: 8%;">
-                    <i class="fa fa-image "
-                       style="color:yellowgreen"></i>&nbsp;Banner
-                </h5>
-                <a class="nav-link ml-4 " asp-action="AddCarouselBanner" role="tab"
-                   aria-controls="v-pills-home1" aria-selected="false" style="color: white;">Carousel Banner</a>
-                <a class="nav-link ml-4" asp-action="AddPostBanner" role="tab"
-                   aria-controls="v-pills-home2" aria-selected="false" style="color: white;">Post Banner</a>
-                <h5 style="color: yellowgreen;margin-left: 8%;">
-                    <i class="fa fa-list "
-                       style="color: yellowgreen;"></i>&nbsp;Category
-                </h5>
-                <a class="nav-link  ml-4" asp-action="AddCategory"
-                   role="tab" aria-controls="v-pills-category" aria-selected="false" style="color: white;">
-                    Main
-                    Category
-                </a>
-                <a class="nav-link  ml-4" asp-action="AddService"
-                   role="tab" aria-controls="v-pills-subcategory" aria-selected="false"
-                   style="color: white;">Subcategory</a>
-                <a class="nav-link  ml-4" asp-action="AddPackage"
-                   role="tab" aria-controls="v-pills-lastcategory" aria-selected="false"
-                   style="color: white;">Packages</a>
-                <h5 style="color: yellowgreen;margin-left: 8%;">
-                    <i class="fa fa-shopping-cart "
-                       style="color: yellowgreen"></i>&nbsp;New Order
-                </h5>
-                <a class="nav-link  ml-4" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab"
-                   aria-controls="v-pills-order" aria-selected="false" style="color: white;">Order Summary</a>
-
-                <h5 style="color: yellowgreen;margin-left: 8%;">
-                    <i class="fa fa-shopping-cart "
-                       style="color: yellowgreen"></i>&nbsp;Logout
-                </h5>
-                <a class="nav-link  ml-4" asp-action="Logoff" role="tab"
-                   aria-controls="v-pills-order" aria-selected="false" style="color: white;">Logout</a>
-
-            </div>
-        </div>
-        <div class="col-md-10">
-
-
+            @*class="col-md-10"*@
 
             <section>
                 <div class="container">
                     <div class="col-md-12 mt-5">
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop1"
-                            style="margin-left: 45%;">Add Banner</button>
+                                style="margin-left: 45%;">
+                            Add Banner
+                        </button>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-8 table-responsive">
@@ -125,7 +37,7 @@
                                             </td>
                                             <td>
                                                 <a type="button" class="btn btn-danger" asp-action="CarouselBannerDelete"
-                                                    asp-route-banId="@item.Id">Delete</a>
+                                                   asp-route-banId="@item.Id">Delete</a>
                                             </td>
                                         </tr>
                                     }
@@ -136,14 +48,6 @@
                     </div>
                 </div>
             </section>
-
-
-        </div>
-    </div>
-
-
-
-
 
     @* add bannr *@
     <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -177,14 +81,3 @@
         </div>
     </div>
 
-
-    <script src="/js/jquery.slim.min.js"></script>
-    <script src="/js/popper.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-
-
-
-
-</body>
-
-</html>
