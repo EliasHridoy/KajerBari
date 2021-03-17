@@ -1,0 +1,352 @@
+﻿@model Order
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/responsivemembers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
+
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>KajerBari</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light ">
+        <a class="navbar-brand" href="index.html">
+            <img src="/img/logo.jpg" style="height: 90px; width: 90px;">
+            KajerBari
+        </a>
+    </nav>
+    <div class="checkoutPage" style="background-color:rgb(237, 250, 167);">
+        <form asp-action="OrderConfirm" asp-controller="Order">
+            <div class="form-row col-md-12">
+                <div class="form-group col-md-7">
+                    <div class="calander  mt-5 "
+                        style="background-color:white;margin-left:15%;padding-bottom:8%;border-radius: 15px;">
+                        <h4 style="padding-top: 5%;padding-left: 5%;">
+                            <img src="/img/schedule.jpg" alt="calander" width="10% " height="10%"> &nbsp;&nbsp;Schedule
+                            <p style="font-size: 15px;padding-left: 14%;color: grey;">
+                                Expert will arrive at your given address within
+                                6.00 PM
+                            </p>
+                        </h4>
+                            <div class="row col-md-12">
+                                <input asp-for="Date" type="text" size="30" class="form-control"
+                                    style="width: 40%;margin-left: 18%;margin-top:7% ;">
+                                <span asp-validation-for="Date"></span>
+                            </div>
+                    </div>
+                    <div class="contact  mt-2"
+                        style="background-color:white;margin-left:15%;padding-bottom:8%;border-radius: 15px;">
+                        <h4 style="padding-top: 5%;padding-left: 3%;">
+                            <img src="/img/phone.jpg" alt="calander" width="13% " height="13%"> &nbsp;&nbsp;Contact
+                            Person
+                            <p style="font-size: 15px;padding-left: 16%;color: grey;">
+                                Expert will Contact with the following Person
+                            </p>
+                        </h4>
+
+                        <div class="form-row col-md-12  mt-5" style="margin-left: 15%;">
+                            <div class="form-group col-md-4">
+                                <label for="exampleInputName">Name</label>
+                                <input asp-for="Name" class="form-control" id="exampleInputName"
+                                    aria-describedby="exampleInputName" placeholder="Name">
+                        <span asp-validation-for="Name"></span>
+                            </div>
+                            <div class="form-group col-md-4 ml-5">
+                                <label for="exampleInputNumber">Phone Number</label>
+                                <input asp-for="@Model.MobileNo" class="form-control" id="exampleInputNumber"
+                                    aria-describedby="exampleInputNumber" placeholder=" Phone Number">
+                        <span asp-validation-for="MobileNo"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="address  mt-2 "
+                        style="background-color:white;margin-left:15%;padding-bottom:8%;border: 1px solid red;border-radius: 15px;">
+                        <h4 style="padding-top: 5%;padding-left: 3%;">
+                            <img src="img/house.jpg" alt="calander" width="13% " height="13%"> &nbsp;&nbsp;Address
+                            <p style="font-size: 15px;padding-left: 16%;color: grey;">
+                                Expert will arrive at the address given below
+                            </p>
+                        </h4>
+
+                        <div class="form-row col-md-12  mt-5" style="margin-left: 15%;">
+                            <div class="form-group col-md-8">
+                                <label for="exampleInputText">House Address In Details</label>
+                                <input asp-for="@Model.Address" class="form-control" id="exampleInputText"
+                                    aria-describedby="exampleInputText" placeholder="House Number">
+                        <span asp-validation-for="Address"></span>
+                            </div>
+                        </div>
+                        <div class="form-row col-md-12  mt-3" style="margin-left: 15%;">
+                            <div as class="form-group col-md-5">
+                                <label for="exampleFormControlSelect1">Area</label>
+                                <select asp-for="@Model.Area" class="form-control" id="exampleFormControlSelect1">
+                                    <option>Akbarshah</option>
+                                    <option>Bakoliya</option>
+                                    <option>Bandar</option>
+                                    <option>Bayazid</option>
+                                    <option>Bhujpur </option>
+                                    <option>Chandgaon </option>
+                                    <option>Double Mooring</option>
+                                    <option>EPZ </option>
+                                    <option>Halishahar </option>
+                                    <option>Karnaphuli Upazila </option>
+                                    <option>Khulshi </option>
+                                    <option>Kotwali </option>
+                                    <option>Pahartali </option>
+                                    <option>Panchlaish </option>
+                                    <option>Patenga </option>
+                                </select>
+                        <span asp-validation-for="Area"></span>
+                            </div>
+                        </div>
+
+                        @* <div class="form-check"style="margin-left: 19%;">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Save the Address</label>
+                            </div> *@
+                        @* <button type="submit" class="btn btn-primary mt-3"style="margin-left: 19%;">Submit</button>
+                        *@
+
+
+                    </div>
+
+
+
+
+                </div>
+
+                <div class="form-group col-md-4 mt-3"
+                    style="background-color:white;margin-left:2%;border-radius: 15px;">
+                    <h4 class="mt-4 ml-2">Order Summary</h4> <br>
+                    <h6 style="color: grey;" class="ml-3">@ViewBag.ServiceName</h6>
+
+
+                    @foreach (var item in ViewBag.packages)
+                    {
+                        <div class="row" style="padding: 1% 23% 1% 3%;">
+                            <span class="cart-size cart-column col-md-6" style="color:grey">@item.PackageName</span>
+                            <span class="cart-price cart-column col-md-6 text-right" style="color: grey;"> @(item.Packagequantity * item.PackagePrice) </span>
+
+                        </div>
+                    }
+                    <hr>
+                    <div class="cart-total mt-3">
+                        <span class="cart-total-title col-md-2">Total</span>
+                        <span class="cart-total-price col-md-2" style="margin-left: 54%;">@ViewBag.total</span>
+                        @* <span class="cart-size cart-column col-md-2">Discount</span>
+                            <span class="cart-price cart-column col-md-2" style="margin-left: 48%;">$19.99</span> *@
+                    </div>
+                    <hr>
+                    <div class="cart-total mt-3">
+                        <strong class="cart-total-title col-md-2">SubTotal</strong>
+                        <span class="cart-total-price col-md-2" style="margin-left: 47%;">@ViewBag.total</span>
+                    </div>
+                    <div class="condition">
+                        <h6 style="color: grey; margin-top: 10%;margin-left: 4%;">
+                            By placing order, I agree to the <a href="#">
+                                terms
+                                & conditions
+                            </a>
+                        </h6>
+                    </div>
+                    <div class="order">
+
+                        <button type="submit" class="btn btn-danger ml-4 mt-5"
+                            style="width: 80%;height: 15%;border-radius: 100px;">
+                            Place Order&nbsp;&nbsp;<i class="fa fa-arrow-right"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="comments" style="margin-top:10%">
+                        <h6 style="padding-top: 5%;padding-left: 5%;">
+                            <img src="img/notes.jpg" alt="comments" width="10% " height="10%"><br>Do you want to add any
+                            additional notes with your order?
+                        </h6>
+                        <textarea name="Comment" id="message" rows="5" cols="40" class="ml-5 mt-4">
+
+                        </textarea>
+
+                    </div>
+                </div>
+        </form>
+    </div>
+
+
+@if(ViewBag.modal==1)
+{
+
+    <!-- =======  ENDS OF REGISTRATION ======= -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" style="background-color: dark;">
+            <div class="modal-content">
+                <div >
+                    <h3 style="text-align: center; text-color: green;"> Your Order is successful</h3>
+                    <button type="button" class="close" data-dismiss="modal" style="margin-top: 2%;">&times;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+    <!-- ======= Footer ======= -->
+    <div class="mt-5">
+        <footer id="footer">
+
+            <div class="footer-top">
+
+                <div class="container">
+
+                    <div class="row col-md-12 footer-newsletter">
+
+
+                        <div class="col-lg-3">
+                            <div class="footer-contact">
+                                <h4>Contact Us</h4>
+                                <ul>
+                                    <li>
+                                        <i class="fa fa-map-marker" style="font-size:24px;color:white"></i> South Castle
+                                        Level 2, House
+                                        50, Road 16, Sector 14, Uttara, Dhaka-1230 Bangladesh.
+                                    </li>
+                                    <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 01928888450</li>
+                                    <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 09610009999</li>
+                                    <li> <i class="fa fa-envelope-o" style="font-size:24px"></i> hello@kajerbari.com
+                                    </li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="footer-contact">
+                                <h4>Company</h4>
+                                <ul>
+                                    <li> About us </li>
+                                    <li>Blog</li>
+                                    <li>Career</li>
+                                    <li> Privacy Policy</li>
+                                    <li>Terms & Condition</li>
+                                    <li> Contact us</li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="footer-contact">
+                                <h4>Other</h4>
+                                <ul>
+                                    <li> Become a Provider </li>
+                                    <li>Our Services</li>
+                                    <li>Our Promises</li>
+                                    <li> How It Workd</li>
+                                    <li>FAQ</li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 social-links footer-contact text-center">
+                            <h3><img src="/img/logo.jpg" alt="" width="30%" height="30%"
+                                    style="margin-top:-26px;">KajerBari</h3>
+                            <br>
+                            <h4>Follow us in</h4>
+                            <a href="https://www.facebook.com/shomadhandotcom/" target="_blank"
+                                class="fa fa-facebook"></a>
+                            <a href="https://twitter.com/shomadhan" target="_blank" class="fa fa-twitter"> </a>
+
+                            <a href="https://www.linkedin.com/company/shomadhan" target="_blank" class="fa fa-linkedin">
+                            </a>
+                            <a href="https://www.youtube.com/c/ShomadhanTube" target="_blank" class="fa fa-youtube"></a>
+                            <a href="https://www.instagram.com/shomadhandotcom/" target="_blank"
+                                class="fa fa-instagram"></a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+        </footer>
+        <!-- End Footer -->
+
+
+
+
+        <script src="/js/jquery.slim.min.js"></script>
+        <script src="/js/jquery.min.js"></script>
+
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+
+        <script>
+
+            $(document).ready(function () {
+                $('#staticBackdrop1').modal('show');
+
+
+                $( function() {
+                    $( "#Date" ).datepicker({ 
+                        minDate: "-0D", maxDate: "+3M" ,
+                        changeYear: true
+
+                    });
+                } );
+
+            })
+
+
+            $(document).ready(function () {
+
+                $("#popo").click(function () {
+                    console.log("clicked");
+                    orderConfirm();
+                });
+
+            });
+
+            function orderConfirm() {
+                const OrderCreationDto = {};
+                OrderCreationDto.Name = $("#Name").val();
+                OrderCreationDto.MobileNo = $("#MobileNo").val();
+                OrderCreationDto.Address = $("#Address").val();
+                OrderCreationDto.Area = $("#Area").val();
+                OrderCreationDto.Date = $("#Date").val();
+                OrderCreationDto.Comment = $("#message").val();
+
+                const Packages = new Array;
+                $("#tblData").find("tr:gt(0)").each(function () {
+
+                    var PakageId = $(this).find("td:eq(0)").text();
+                    var Quantity = $(this).find("td:eq(1)").text();
+                    colsole.log(PakageId + " " + Quantity);
+
+                });
+            }
+        </script>
+
+
+</body>
+
+</html>

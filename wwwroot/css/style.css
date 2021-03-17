@@ -1,0 +1,380 @@
+.top-banner{
+ margin-left: 50px;
+ margin-top: 20px;
+}
+
+ .button{
+   margin-top: 40px;
+   margin-left: 80px;
+    width:200px;
+    height:60px;
+ }
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #FF8C00;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #f1f1f1;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.bannerText{
+    left: 25%;
+    margin-bottom: 14%;
+    font-family: "Garamond", serif;
+   font-size: 45px;
+   color: white;
+}
+.right{
+  position: absolute;
+  left:75%;
+   top: -35%;
+}
+.services1{
+    margin-top: 10%;
+    margin-left:50px;
+    font: italic small-caps bold 20px Georgia, serif;
+}
+.services1 a{
+  color: black;
+}
+
+.card-first {
+ background-color:white;
+    transition: 0.3s;
+    width: 85%;
+    height: 90%;
+  }
+  .card-first img{
+    width:40%;
+    margin-left: 27%;
+    margin-top: 8%;
+  }
+ 
+  .card-first h5{
+    font-family: Georgia, serif ;
+    font-size: 16px;
+     margin-left: 20%;
+     padding-bottom: 10%;
+     margin-top: 4%;
+    
+   }
+  .card-first:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .services2{
+    margin-left:50px;
+   padding-top: 70px;
+    font: italic small-caps bold 20px Georgia, serif;
+}
+.carousel-cell2 {
+    width:25%;
+    height: 15rem;
+    display: inline-block;
+    margin: 0 20px;
+    overflow: hidden;;
+}
+.carousel-cell {
+  width:25%;
+  height: 15rem;
+    display: inline-block;
+    margin: 0 20px;
+    overflow: hidden;;
+}
+.services3{
+    margin-left:50px;
+    font: italic small-caps bold 20px Georgia, serif;
+}
+ figcaption h4{
+     margin-left: 3%;
+ }
+ .main-carousel{
+     margin-left: 1%;
+ }
+
+ .container {
+    padding: 2px 16px;
+  }
+  .card-1 {
+  
+  
+  text-align: center;
+  background-color: white;
+  
+  }
+  .card-2 {
+     background: white;
+    transition: 0.3s;
+    width: 100%;
+    height: 190px;
+  }
+  .services4{
+    margin-left:50px;
+   padding-top: 70px;
+    font: italic small-caps bold 20px Georgia, serif;
+    color: #FF8C00;
+}
+.promises h3{
+  margin-left:90px;
+  margin-top:70px;
+  font:  small-caps bold 30px Georgia, serif;
+  color:#FF8C00;
+}
+.card-pro {
+  background-color:white;
+     transition: 0.3s;
+     width: 85%;
+     height: 100%;
+     margin-left: 10%;
+     padding-bottom: 10%;
+   }
+   .card-pro img{
+    width:30%;
+    margin-left: 32%;
+    margin-top: 10%;
+  }
+  .card-pro h4{
+   font-family: Georgia, serif ;
+    font-size: 20px;
+    margin-top: 5%;
+    margin-left:12%;
+   
+  }
+  .card-pro h5{
+    font-family: Georgia, serif ;
+     font-size: 20px;
+     margin-top: 7%;
+     margin-left:16%;
+    
+   }
+.carousel-cell1 {
+    width:25%;
+    height: 25rem;
+    display: inline-block;
+    margin: 0 25px;
+    overflow: hidden;;
+}
+
+#footer {
+    background-color: grey;
+    color: #5f687b;
+    font-size: 14px;
+    position: relative;
+    font-family:"Poppins", sans-serif;
+  }
+  
+  #footer .footer-top {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  
+    color: #fff;
+    padding-bottom: 10px;
+    padding-top: 20px;
+  }
+  
+  #footer .footer-top h3 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #fff;
+    border-bottom: 1px solid #d77b24;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    padding-top: 20px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  
+  #footer .footer-top p {
+    font-size: 15;
+    margin: 15px 0 0 0;
+    padding: 0;
+  }
+  
+  #footer .footer-top .footer-newsletter {
+    text-align: left;
+    font-size: 15px;
+    margin-top: 30px;
+  }
+  
+  #footer .footer-top .footer-newsletter form {
+    background: #fff;
+    padding: 6px 10px;
+    position: relative;
+    border-radius: 4px;
+    text-align: left;
+    border: 1px solid #e4e6ea;
+  }
+  
+  
+  
+  #footer .footer-top .footer-contact h4{
+    font-weight: bold;
+  }
+  
+  #footer .footer-top .footer-contact ul{
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+  }
+  
+  #footer .footer-top .social-links {
+    margin-top: 30px;
+  }
+  
+  #footer .footer-top .social-links a {
+    font-size: 18px;
+    display: inline-block;
+    background: #eaecef;
+    color: #5f687b;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 4px;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+  }
+  
+  #footer .footer-top .social-links a:hover {
+    background: #d77b24;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  @media (max-width: 992px) {
+    #footer .copyright, #footer .credits {
+      float: none;
+      -moz-text-align-last: center;
+      text-align-last: center;
+    }
+  }
+ 
+  
+  .fa:hover {
+      opacity: 0.7;
+  }
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-linkedin {
+    background: #007bb5;
+    color: white;
+  }
+  
+  .fa-youtube {
+    background: #bb0000;
+    color: white;
+  }
+  
+  .fa-instagram {
+    background: #125688;
+    color: white;
+  }
+.caption{
+  position:flex;
+  color: whitesmoke;
+  margin-left: 10%;
+}
+.caption li{
+  font-size: 18px;
+}
+.caption button{
+  font-size: 24px;
+  margin-left: 1% ;
+}
+.caption h1{
+  margin-left: 1%;
+  padding-top: 8% ;
+}
+.pageImg{
+height:70vh; 
+background-size:cover; 
+background-position:center;
+ background-repeat:no-repeat;
+}
+
+.featuresChild{
+  margin-left: 12%;
+  margin-top: 4%;
+}.features1{
+  margin-left: 6%;
+}
+.card-second {
+  background-color:rgb(248, 235, 113);
+   }
+.card-second h1{
+  color: rgb(194, 44, 44);
+  padding-top: 10%;
+  margin-left: 5%;
+}
+.card-second h2{
+  padding-top: 2%;
+  margin-left: 5%;
+}
+.card-second h3{
+  margin-left: 5%;
+}
+
+.model-items form{
+  padding-top:12%;
+ 
+}
+.model-items form .form-row{
+padding-bottom: 2%;
+padding-left: 6%;
+
+}
+.checkoutPage .form-control{ border-color: red;}  
+.form-control:focus{border-color: #fbba58;  box-shadow: none; -webkit-box-shadow: none;} 
+.has-error .form-control:focus{box-shadow: none; -webkit-box-shadow: none;}
+.button-container{
+  display: flex;
+  align-items:center;
+}
+.button-container .form-control{
+  max-width: 80px;
+  text-align: center;
+  display: inline-block;
+  margin: 0px 2px;
+  
+}
+.videoPlay video{
+  object-fit: cover;
+  width: 100%;
+ 
+}

@@ -1,0 +1,525 @@
+﻿@model IEnumerable<KazerBariWeb.Models.Service>
+@{
+
+    var category = ViewBag.Category;
+    var servicename = ViewBag.servicename;
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/style.css">
+@*   <link rel="stylesheet" href="/css/responsive.css"> *@
+ @*  <link rel="stylesheet" href="/css/responsivemembers.css"> *@
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  @* <script src="/store.js" async></script> *@
+  <title>KajerBari</title>
+</head>
+
+<body>
+
+
+
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <a class="navbar-brand" href="index.html"> <img src="/img/logo.jpg" style="height: 90px; width: 90px;">
+      KajerBari</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fa fa-bars" style="color: black"></i></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+      <ul class="navbar-nav " style="margin-right:12%">
+        <li class="nav-item ml-3">
+          <a class="nav-link" href="index.html" style="color:grey;"><i style="font-size:24px;padding:5px;"></i> Home
+          </a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link" href="try.html" style="color:grey;"><i style="font-size:24px;padding:5px;"></i> All
+            Categories </a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link" href="#" style="color:grey;"><i style="font-size:24px;padding:5px;"
+              class="fa">&#xf2c0;</i>Become a provider </a>
+        </li>
+        <li class="nav-item ml-3">
+          <a class="nav-link" href="#"><i class="fa fa-mobile" style="font-size:26px ; color:gray;padding:5px;"> </i>
+            Download Our App</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <aside id="fh5co-hero" class="js-fullheight">
+    <div class="pageImg"
+      style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(/Catagory/@category.Banner);">
+      <div class="caption ">
+        <h1>@category.Name </h1><br>
+        <h6><button type="button" class="btn btn-success"><i class="fa fa-star"></i> 4.75 out of
+            5</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(3286 ratings on 2 services)</h6>
+        <br>
+        <ul>
+          <li> 7 days Service W arranty</li>
+          <li> 24/7 Customer Support</li>
+          <li> Trusted & Reliable Electricians</li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+  <div class="features1" style="margin-top: 8%;margin-left: 8%;">
+    <form>
+      <div class="form-row col-md-12">
+        <div class="card-second col-md-4">
+          <h1>@category.Name </h1>
+          <h2><button type="button" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-danger"><i
+                class="fa fa-star"></i> 4.75 out of 5</button></h2>
+          <br>
+          <div class="btn-group-vertical text-left ml-4">
+          @foreach (var service in Model)
+
+          {
+            <button type="button" onclick="sendId(@service.Id)" value="@service.Id" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-light text-left mb-2">
+                @service.Name &nbsp;&nbsp;<i class="fa fa-arrow-right ml-3"></i></button>
+
+          }
+          </div>
+          @* <h3><button type="button" data-toggle="modal" data-target="#staticBackdrop"class="btn btn-light"> LCD/LED
+            TV Repair Services &nbsp;&nbsp;<i class="fa fa-arrow-right ml-5"></i></button></h3>
+            <h3><button type="button" data-toggle="modal" data-target="#staticBackdrop" class="btn btn-light"> TV Wall
+            Mount Installation &nbsp;&nbsp;<i class="fa fa-arrow-right ml-5"></i></button></h3>
+            <h3><button type="button"data-toggle="modal" data-target="#staticBackdrop" class="btn btn-light"> LCD/LED TV
+            Repair Services &nbsp;&nbsp;<i class="fa fa-arrow-right ml-5"></i></button></h3> *@
+          <h5 style="padding-bottom: 12%;"></h5>
+        </div>
+        <div class="form-group col-md-6 featuresChild ">
+          <h2>What's Included?</h2>
+          <ul>
+            @foreach (var item in ViewBag.whatIncluded)
+            {
+                <li> @item </li>
+            }
+          </ul><br>
+          <h2>What’s Excluded?</h2>
+          <ul>
+          @foreach (var item in ViewBag.whatExcluded)
+            {
+                <li> @item </li>
+            }
+          </ul>
+
+
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <label class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">LCD/LED TV Repair Services</label>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <label style="margin-left: 1.8rem; display: flex;"><h6  id="servicelabel">LCD/LED TV Repair Services</h6><i class="fa fa-arrow-right ml-4" style="color: red; padding-top: 2px;"></i></label>
+          <form>
+            <div class="form-row col-md-12">
+              <div id="pack" class=" col-md-8 ">
+                @*<h5>Select Tv Size -</h5><br>
+                <div class="form-row col-md-12">
+                  <div class=" col-md-7">
+                    <h6>22"-39" </h6>
+                    <h6>tk:1000/unit </h6>
+                  </div>
+                  <div class="button-container col-md-5">
+                    <button class="cart-qty-minus1 btn btn-warning" type="button" value="-">-</button>
+                    <input type="text" id="quantity1" min="0" class="qty form-control" value="0" />
+                    <button type="button" class="cart-qty-plus1 btn btn-warning" value="+">+</button>
+                    <button type="button" class=" btn btn-warning ml-4">Add <i class="fa fa-plus ml-2"></i></button>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-row col-md-12">
+                  <div class=" col-md-7">
+                    <h6>22"-39" </h6>
+                    <h6>tk:1000/unit </h6>
+                  </div>
+                  <div class="button-container col-md-5">
+                    <button class="cart-qty-minus2 btn btn-warning" type="button" value="-">-</button>
+                    <input type="text" id="quantity2" min="0" class="qty form-control" value="0" />
+                    <button type="button" class="cart-qty-plus2 btn btn-warning" value="+">+</button>
+                    <button type="button" class=" btn btn-warning ml-4">Add<i class="fa fa-plus ml-2"></i></button>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-row col-md-12">
+                  <div class=" col-md-7">
+                    <h6>22"-39" </h6>
+                    <h6>tk:1000/unit </h6>
+                  </div>
+                  <div class="button-container col-md-5">
+                    <button class="cart-qty-minus3 btn btn-warning" type="button" value="-">-</button>
+                    <input type="text" id="quantity3" min="0" class="qty form-control" value="0" />
+                    <button type="button" class="cart-qty-plus3 btn btn-warning" value="+">+</button>
+                    <button type="button" class=" btn btn-warning ml-4">Add<i class="fa fa-plus ml-2"></i></button>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-row col-md-12">
+                  <div class=" col-md-7">
+                    <h6>22"-39" </h6>
+                    <h6>tk:1000/unit </h6>
+                  </div>
+                  <div class="button-container col-md-5">
+                    <button class="cart-qty-minus4 btn btn-warning" type="button" value="-">-</button>
+                    <input type="text" id="quantity4" min="0" class="qty form-control" value="0" />
+                    <button type="button" class="cart-qty-plus4 btn btn-warning" value="+">+</button>
+                    <button type="button" class=" btn btn-warning ml-4">Add<i class="fa fa-plus ml-2"></i></button>
+                  </div>
+                </div>
+                <hr>
+                <div class="form-row col-md-12">
+                  <div class=" col-md-7">
+                    <h6>22"-39" </h6>
+                    <h6>tk:1000/unit </h6>
+                  </div>
+                  <div class="button-container col-md-5">
+                    <button class="cart-qty-minus5 btn btn-warning" type="button" value="-">-</button>
+                    <input type="text" id="quantity5" min="0" class="qty form-control" value="0" />
+                    <button type="button" class="cart-qty-plus5 btn btn-warning" value="+">+</button>
+                    <button type="button" class=" btn btn-warning ml-4">Add<i class="fa fa-plus ml-2"></i></button>
+                  </div>
+
+                </div>*@
+              </div>
+              <div class=" col-md-4">
+                <div class="cart-items">
+                  <div id="cartedItem" class="cart-row">
+                    <div class="cart-item cart-column ">
+                      @* <span id="cartItemServiceName" class="cart-item-title col-md-2">LCD/LED TV Repair Services</span>
+                      <span id="cartItemQuantity" class="cart-item-quantity col-md-2"
+                        style="width: max-content;height: max-content;border: 1px solid;margin-left: 15%;">1</span> *@
+
+                    </div>
+                    <div>
+                     @*  <span id="cartItemName" class="cart-size cart-column col-md-2">22"-39"</span>
+                      <span id="cartItemUnitPrice" class="cart-price cart-column col-md-2" style="margin-left: 50%;">$19.99</span> *@
+                    </div>
+                  </div>
+                </div>
+                <div id="total" class="cart-total mt-5">
+                </div>
+
+
+                @* <form asp-action="Checout">
+                  <input asp-for="PakageId" readonly>
+                  <input asp-for="Quantity" readonly>
+                  <input asp-for="PackageName" readonly>
+                  <input asp-for="" readonly>
+
+
+                </form> *@
+
+
+
+              </div>
+
+            </div>
+
+          </form>
+        </div>
+        <div id="checkout-div" class="modal-footer text-center" style="display: none;">
+            <button id="checkout" class="col-md-3 btn btn-danger ml-4" style="position:relative;  bottom:0;width: 90%;"> checkout&nbsp;&nbsp;<i class="fa fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Load Facebook SDK for JavaScript -->
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function () {
+      FB.init({
+        xfbml: true,
+        version: 'v9.0'
+      });
+    };
+
+    (function (d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- Your Chat Plugin code -->
+  <div class="fb-customerchat" attribution="setup_tool" page_id="110887300613806">
+  </div>
+
+
+  <!-- ======= Footer ======= -->
+  <div class="mt-5">
+      <footer id="footer">
+
+          <div class="footer-top">
+
+              <div class="container">
+
+                  <div class="row col-md-12 footer-newsletter">
+
+
+                      <div class="col-lg-3">
+                          <div class="footer-contact">
+                              <h4>Contact Us</h4>
+                              <ul>
+                                  <li>
+                                      <i class="fa fa-map-marker" style="font-size:24px;color:white"></i> South Castle Level 2, House
+                                      50, Road 16, Sector 14, Uttara, Dhaka-1230 Bangladesh.
+                                  </li>
+                                  <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 01928888450</li>
+                                  <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 09610009999</li>
+                                  <li> <i class="fa fa-envelope-o" style="font-size:24px"></i> hello@kajerbari.com</li>
+
+
+                              </ul>
+                          </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                          <div class="footer-contact">
+                              <h4>Company</h4>
+                              <ul>
+                                  <li> About us </li>
+                                  <li>Blog</li>
+                                  <li>Career</li>
+                                  <li> Privacy Policy</li>
+                                  <li>Terms & Condition</li>
+                                  <li> Contact us</li>
+
+
+                              </ul>
+                          </div>
+                      </div>
+                      <div class="col-lg-3">
+                          <div class="footer-contact">
+                              <h4>Other</h4>
+                              <ul>
+                                  <li> Become a Provider </li>
+                                  <li>Our Services</li>
+                                  <li>Our Promises</li>
+                                  <li> How It Workd</li>
+                                  <li>FAQ</li>
+
+
+
+                              </ul>
+                          </div>
+                      </div>
+
+                      <div class="col-lg-3 social-links footer-contact text-center">
+                          <h3><img src="/img/logo.jpg" alt="" width="30%" height="30%" style="margin-top:-26px;">KajerBari</h3>
+                          <br>
+                          <h4>Follow us in</h4>
+                          <a href="https://www.facebook.com/shomadhandotcom/" target="_blank" class="fa fa-facebook"></a>
+                          <a href="https://twitter.com/shomadhan" target="_blank" class="fa fa-twitter"> </a>
+
+                          <a href="https://www.linkedin.com/company/shomadhan" target="_blank" class="fa fa-linkedin"> </a>
+                          <a href="https://www.youtube.com/c/ShomadhanTube" target="_blank" class="fa fa-youtube"></a>
+                          <a href="https://www.instagram.com/shomadhandotcom/" target="_blank" class="fa fa-instagram"></a>
+                      </div>
+                  </div>
+              </div>
+              <br>
+
+      </footer>
+      <!-- End Footer -->
+
+
+
+
+      <script src="~/js/jquery.slim.min.js"></script>
+      <script src="~/js/popper.min.js"></script>
+      <script src="~/js/bootstrap.min.js"></script>
+      <script src="~/js/jquery.min.js"></script>
+      <script src="~/js/bootstrap.bundle.min.js"></script>
+
+      <script type="text/javascript">
+
+          var serviceId; // global variable
+          function sendId(id) {
+              serviceId = id;
+
+
+              var url = "http://localhost:5000/Order/GetPackages?serviceId=" + serviceId;
+              // var dataInPerameter = JSON.stringify({"serviceId":value});
+              $.getJSON(url, function (data) {
+                  var serviceName = '';
+                  var items = '';
+                  $("#pack").empty();
+                  $.each(data, function (i, package) {
+                      serviceName = package.serviceName;
+
+                      items += '<div id="' + package.id + '" class="form-row col-md-12">  <div class=" col-md-7">  <h6 id="packageName' + package.id + '" >' + package.name + ' </h6> <h6>tk:' + package.price + '/unit </h6></div><div class="button-container col-md-5"><button class="cart-qty-minus2 btn btn-warning" onclick="minus(' + package.id + ')" type="button" value="-">-</button><input type="text" id="count' + package.id + '" min="0" class="qty form-control" value="0" /><button type="button" class="cart-qty-plus2 btn btn-warning" onclick="plus(' + package.id + ')" value="+" >+</button><button id="addToCartButton' + package.id + '" type="button" onclick="addToCart(' + package.id + ',' + package.price + ')" class=" btn btn-warning ml-4" disabled>Add<i class="fa fa-plus ml-2"></i></button></div></div> <hr>'
+                  });
+                  document.getElementById('servicelabel').innerHTML = serviceName;
+                  document.getElementById('staticBackdropLabel').innerHTML = serviceName;
+                  $('#pack').html(items);
+              });
+          }
+
+
+
+          function plus(id) {
+              var inputfieldname = 'count' + id;
+              var currentValue = +$('#' + inputfieldname).val() || 0;
+              currentValue++;
+              document.getElementById(inputfieldname).value = currentValue;
+              document.getElementById("addToCartButton" + id).disabled = false;
+          }
+          function minus(id) {
+              var inputfieldname = 'count' + id;
+              var currentValue = +$('#' + inputfieldname).val() || 0;
+              if (currentValue > 0) {
+                  currentValue--;
+                  document.getElementById(inputfieldname).value = currentValue;
+              }
+              if (currentValue == 0) {
+                  document.getElementById("addToCartButton" + id).disabled = true;
+              }
+          }
+          var total = 0;
+          var chackoutPackages = [];
+          var chackoutpackagesHtml = '';
+
+
+          function addToCart(packageId, packagePrice) {
+            var existPackage = chackoutPackages.find(x => x.packageId == packageId);
+            var foundIndex = chackoutPackages.findIndex(x => x.packageId == packageId);
+            if(existPackage != null) {
+              var quantity = +$('#count' + packageId).val();
+              chackoutPackages[foundIndex].packagequantity = quantity;
+              document.getElementById('cart-item-quantity'+packageId).textContent = quantity;
+              @* $('cart-item-quantity'+packageId).html(quantity); *@
+
+              total = 0;
+              $.each(chackoutPackages, function (i, package) {
+                      total += package.packagePrice * package.packagequantity;
+                  });
+
+              $('#total').empty();
+              var totalhtml = '<strong class="cart-total-title col-md-2">Total</strong><span class="cart-total-price col-md-2" style="margin-left: 54%;">$' + total + '</span>'
+              $('#total').html(totalhtml);
+            }
+
+            else {
+
+              const package = {
+                  packageId: Number,
+                  serviceNane: String,
+                  packageName: String,
+                  packagePrice: Number,
+                  packagequantity: Number
+              }
+              package.packageId = packageId;
+              package.serviceNane = document.getElementById('servicelabel').innerHTML
+              package.packageName = $('#packageName' + packageId).text();
+              package.packagePrice = packagePrice;
+              package.packagequantity = +$('#count' + packageId).val(); 
+              chackoutPackages.push(package);
+              $('#cartedItem').empty();
+
+              chackoutpackagesHtml += '<div class="cart-item cart-column row style="margin-top: 1rem;""><span class="cart-item-title col-md-7">' + package.serviceNane + '</span><span class="cart-item-quantity col-md-4 text-right" ><span id="cart-item-quantity'+package.packageId+'" class="col-md-2" style="width: max-content;height: max-content;border: 1px solid;">' + package.packagequantity + '</span></span> <button type="button" onclick="removeItemFromCart('+package.packageId+')" class="close">&times;</button> </div><div class="row" style="margin-bottom: 1rem;"><span class="cart-size cart-column col-md-7">' + package.packageName + '</span><span class="cart-price cart-column col-md-4 text-right">' + package.packagePrice + '</span></div>';
+              @* chackoutpackagesHtml += '<div class="cart-item cart-column "><span class="cart-item-title col-md-2">' + package.serviceNane + '</span><span id="cart-item-quantity'+package.packageId+'" class="cart-item-quantity col-md-2" style="width: max-content;height: max-content;border: 1px solid;margin-left: 58%;">' + package.packagequantity + '</span></div><div><span class="cart-size cart-column col-md-2">' + package.packageName + '</span><span class="cart-price cart-column col-md-2" style="margin-left: 50%;">' + package.packagePrice + '</span> <button type="button" onclick="removeItemFromCart('+package.packageId+')" class="close">&times;</button></div><hr>'; *@
+              $('#cartedItem').html(chackoutpackagesHtml);
+              total += package.packagePrice * package.packagequantity;
+              $('#total').empty();
+
+              var totalhtml = '<strong class="cart-total-title col-md-2">Total</strong><span class="cart-total-price col-md-2" style="margin-left: 54%;">$' + total + '</span>'
+              $('#total').html(totalhtml);
+            
+              $('#checkout-div').css({
+                display: "block",
+              });
+              console.log(chackoutPackages);
+
+            }
+            $('#count' + packageId).val("0");
+
+            document.getElementById("addToCartButton" + packageId).disabled = true;
+          }
+
+          function removeItemFromCart(packageId) {
+              chackoutPackages = chackoutPackages.filter(function( obj ) {
+              return obj.packageId !== packageId;
+              });
+
+              $('#cartedItem').empty();
+              chackoutpackagesHtml = '';
+              total = 0;
+              $.each(chackoutPackages, function (i, package) {
+
+                      chackoutpackagesHtml += '<div class="cart-item cart-column row style="margin-top: 1rem;""><span class="cart-item-title col-md-7">' + package.serviceNane + '</span><span class="cart-item-quantity col-md-4 text-right" ><span id="cart-item-quantity'+package.packageId+'" class="col-md-2" style="width: max-content;height: max-content;border: 1px solid;">' + package.packagequantity + '</span></span> <button type="button" onclick="removeItemFromCart('+package.packageId+')" class="close">&times;</button> </div><div class="row" style="margin-bottom: 1rem;"><span class="cart-size cart-column col-md-7">' + package.packageName + '</span><span class="cart-price cart-column col-md-4 text-right">' + package.packagePrice + '</span></div>';
+                      total += package.packagePrice * package.packagequantity;
+                  });
+              
+              $('#cartedItem').html(chackoutpackagesHtml)
+
+              $('#total').empty();
+              var totalhtml = '<strong class="cart-total-title col-md-2">Total</strong><span class="cart-total-price col-md-2" style="margin-left: 54%;">$' + total + '</span>'
+              $('#total').html(totalhtml);
+
+              // document.getElementById('count'+packageId).value = 0;
+
+               if(chackoutPackages.length == 0){
+                $('#checkout-div').css({
+                  display: "none",
+                });
+                $('#total').empty();
+              };
+          }
+
+          //$(document).ready(function () {
+          //    $("#123").click(function () {
+          //        window.location.href = "/Order/checkout";
+          //    });
+          //});
+          $(document).ready(function () {
+              $("#checkout").click(function () {
+
+                  console.log('button click hyce');
+
+                  $.ajax({
+                      type: "POST",
+                      url: "http://localhost:5000/Order/checkout",
+                      data: JSON.stringify(chackoutPackages),
+                      contentType: "application/json; charset=utf-8",
+                      dataType: 'html',
+                      success: function (response) {
+                          window.location.href = "/Order/OrderConfirm";
+                      },
+                      failure: function (response) {
+                          console.log(response.responseText);
+                      },
+                      error: function (response) {
+                          console.log(response.responseText);
+                      }
+                  });
+
+              });
+          });
+
+
+      </script>
+
+
+</body>
+
+</html>

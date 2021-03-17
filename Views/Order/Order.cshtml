@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/responsivemembers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <title>KajerBari</title>
+</head>
+
+<body>
+
+
+    <button id="btnClick" class="btn btn-primary">Click Me</button>
+
+
+    @for(int i =0; i<5; i++)
+    {
+        <input readonly value="@i" id="@i-cls" />
+        <label value="@i" id="@i-clss"></label>
+    }
+    <input id="d" value="hello" />
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+            console.log("hello");
+            canvasFields = [{
+                  id: 1,
+                  name:"Rahim"
+                },
+                {
+                  id: 2,
+                  name:"Rahima"
+                }];
+            obj = {
+                
+            }
+
+        var myJsonString = JSON.stringify(canvasFields);  //only for test
+
+        $('#btnClick').click(function (e) {
+            $.ajax({
+                url: "@Url.Action("Order")",
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify(canvasFields),
+                success: function () {
+                    alert("yes");
+                },
+                error: function (errMsg) {
+                    alert(errMsg);
+                }
+            })
+        });
+        });
+
+        $(document).ready(function () {
+            for (var i = 0; i < 5; i++) {
+                var dd = "#" + i + "-cls";
+                var vala = $(dd).val();
+                console.log(vala);
+
+            }
+            console.log($("#d").val());
+            console.log("hello");
+            
+        });
+
+
+
+        $(document).ready(function () {
+            const orderDTO = {
+                schedule: String,
+                cusName: String,
+                cusNumber: String,
+                houseNumber: String,
+                area: String
+            }
+        });
+    </script>
+
+</body>
+
+</html>

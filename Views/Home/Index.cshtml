@@ -1,0 +1,881 @@
+﻿@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/responsivemembers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <title>KajerBari</title>
+</head>
+<body>
+    <div class="top-banner">
+
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="index.html">  <img src="/img/logo.jpg" style="height: 90px; width: 90px;"> KajerBari</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa fa-bars" style="color: black"></i></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
+                <ul class="navbar-nav " style="margin-right:12%">
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="index.html" style="color:grey;"><i style="font-size:24px;padding:5px;"></i> Home </a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="#select" style="color:grey;"><i style="font-size:24px;padding:5px;"></i> All Categories </a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="#" style="color:grey;"><i style="font-size:24px;padding:5px;" class="fa">&#xf2c0;</i>Become a provider </a>
+                    </li>
+                    <li class="nav-item ml-3">
+                        <a class="nav-link" href="#"><i class="fa fa-mobile" style="font-size:26px ; color:gray;padding:5px;"> </i> Download Our App</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <aside id="fh5co-hero" class="js-fullheight">
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                @{
+                        // Here the initialization happens outside of the loop
+                        var i = 0;
+                    }
+
+                @foreach (var banner in ViewBag.CaresolBanner)
+                {
+                    if (i == 0)
+                    {
+                        <div class="carousel-item active">
+
+                            <img src="/AllBanner/@banner.ImageName" height="480" class="d-block w-100" alt="Slider image ">
+
+                        </div>
+                        i++;
+                    }
+
+                    else
+                    {
+                        <div class="carousel-item">
+                            <img src="/AllBanner/@banner.ImageName" height="480" class="d-block w-100" alt="Slider image">
+
+                        </div>
+                        i++;
+
+                    }
+
+                }
+                @* <div class="carousel-item active">
+
+                    <img src="/img/banner1.jpg" height="480" class="d-block w-100" alt="Slider image ">
+
+                </div>
+                <div class="carousel-item">
+                    <img src="/img/banner2.jpg" height="480" class="d-block w-100" alt="Slider image">
+
+                </div> *@
+            </div>
+        </div>
+    </aside>
+    <!--- STARTS OF SERVICE---->
+    <div class="services1 mt-5" id="select">
+        <h4> Service by Catagory</h4>
+        <br>
+        <form>
+            <div class="form-row col-md-12">
+
+                @foreach (var item in ViewBag.Category)
+                {
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a asp-action="GetServices" asp-controller="Order" asp-route-categoryId="@item.Id">
+                        <div class="card-first">
+
+                            <img src="/Catagory/@item.Icon">
+                            <h5>@item.Name</h5>
+                        </div>
+                    </a>
+                </div>
+                }
+                
+               @*  <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/02.png">
+
+                            <h5 style="padding-left: 7%;">Cleaning</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/03.png">
+
+                            <h5 style="padding-left: 7%;">Shifting</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/04.png">
+
+                            <h5 style="padding-left: 7%;">Courier</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/05.png">
+
+                            <h5>Rent Vehicle</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/06.png">
+
+                            <h5 style="padding-left: 7%;">Laundry</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/07.png">
+
+                            <h5 style="padding-left: 7%;">Painting</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/08.png">
+
+                            <h5>Interior Design</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/09.png">
+
+                            <h5>/Home/Office Application</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/10.png">
+
+                            <h5>Event Management</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/11.png">
+
+                            <h5>Digital Marketing</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/12.png">
+
+                            <h5>Sanitary & Plumber</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/13.png">
+
+                            <h5 style="padding-left: 7%;">Electrical</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/14.png">
+
+                            <h5>Hotel & Travel</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/15.png">
+
+                            <h5>Emergency Service</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/16.png">
+
+                            <h5>Web & App Development</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/17.png">
+
+                            <h5 style="padding-left: 7%;">Services</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="form-group col-sm-6 col-md-2 col-lg-2">
+                    <a href="try.html">
+                        <div class="card-first">
+                            <img src="/Catagory/18.png">
+
+                            <h5 style="padding-left: 7%;">Services</h5>
+                        </div>
+                    </a>
+                </div> *@
+
+            </div>
+
+        </form>
+    </div>
+    <!--- POPULAR SERVICES--->
+    <div class="mt-5" style="background-color:#F5F5F5;">
+        @foreach (var category in ViewBag.services)
+        {
+            <div class="services2">
+                <h4> @category.Name</h4>
+                <br>
+            </div>
+            <div class="main-carousel mt-1" data-flickity>
+
+            @foreach (var service in category.Services)
+            {
+            
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/@service.Image" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> @service.Name</h4>
+                </figcaption>
+            </div>
+            
+            }
+            </div>
+        
+        }
+
+
+        @* <div class="services2">
+            <h4> Popular Services</h4>
+            <br>
+        </div>
+        <div class="main-carousel mt-1" data-flickity>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/ac.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> AC Repair Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/beauty.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Beauty Salon  Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/car.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Car Wash and Cleaning </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/home.jpeg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> House Cleaning Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/laptop.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Plumbing Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/TV.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Laptop Repair Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell2">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Services/plumb.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-1">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> TV Repair Services</h4>
+                </figcaption>
+            </div>
+        </div>
+
+        <div class="services3">
+            <h4> Home Cleaning </h4>
+            <br>
+        </div>
+        <div class="main-carousel mt-2" data-flickity>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/dry.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Laudry Dry Cleaning  </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/house.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> House Cleaning Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/sofa.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Sofa Cleaning Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/carpet.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Carpet Cleaning Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/kitchen.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Kitchen Hood Cleaning </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Home/water.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Water Tank Cleaning</h4>
+                </figcaption>
+            </div>
+        </div>
+
+
+        <div class="services3">
+            <h4> Home Repairs</h4>
+            <br>
+        </div>
+        <div class="main-carousel mt-2" data-flickity>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="Repairs/plumb.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Plumbing Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="Repairs/elec.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Electrical  Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="Repairs/carp.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Carpenter Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="Repairs/Sofa.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Sofa Repair Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Repairs/computer.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Computer Repair Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Repairs/key.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Key Lock Repair Services</h4>
+                </figcaption>
+            </div>
+        </div>
+
+        <div class="services3">
+            <h4> Home Care & Shifting </h4>
+            <br>
+        </div>
+        <div class="main-carousel mt-2" data-flickity>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/car.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Car Wash & Cleaning  </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/shift.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">House Shifting  Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/oven.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Microwave Oven Repair Services</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/tread.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Treadmill Repair Services </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/pest.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Pest Control Services   </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Shifting/cctv.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">CCTV Camera Repair Services</h4>
+                </figcaption>
+            </div>
+        </div>
+
+
+        <div class="services3">
+            <h4> Wedding Services</h4>
+            <br>
+        </div>
+        <div class="main-carousel mt-2" data-flickity>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Wedding/Makeup.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Makeup & Hairstyle  </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Wedding/Mehedi.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Mehendi Artist</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src=" /Wedding/photo.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;">Wedding Photography  </h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Wedding/pre.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Pre Wedding Shoot</h4>
+                </figcaption>
+            </div>
+            <div class="carousel-cell">
+                <div class="card " style="height: 11rem;">
+                    <img class="card-img-top" src="/Wedding/post.jpg" alt="Card image cap" style="height: 11rem;">
+
+                </div>
+                <figcaption class="mt-3">
+                    <h4 style="font:small-caps bold 13px Georgia, serif;"> Post Wedding Shoot </h4>
+                </figcaption>
+            </div>
+
+        </div> *@
+
+    </div>
+
+    <!--- ABOUT US ---->
+    <div id="Contact" class="mt-5">
+
+        <div class="card-1">
+            <div class="row col-md-12">
+                <div class="col-sm-3 col-md-6 col-lg-4 " style="margin:center;">
+                    <br>
+
+                    <h2 style="margin-top:200px; margin-left:40px; font-weight:bold; font-family: Garamond, serif">One-stop solution to all <br> your daily service needs</h2>
+                    <br>
+                    <img src="img/play.png" alt="" style="width:70%;height:15%">
+                    <br>
+                    <br>
+                    <h6 style="font-weight:10px;font-family:Georgia, serif;margin-left:40px"> Enter Your Mobile Number To Get The App Link</h6>
+                    <br>
+                    <div class="col-md-8 pl-8" style="margin-left:60px;">
+                        <input class="form-control" type="text" placeholder="+880   Your Mobile Number">
+                        <button type="button" class="btn btn-primary" style="margin-left:255px; margin-top:-70px;">Send</button>
+
+
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-3 col-md-8 pl-7">
+                    <div class="container">
+
+                        <img src="/img/about.png" alt="" style="height:700px;width:700px; margin-left:100px;">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="videoPlay mt-5">
+        <video controls autoplay height="500">
+            <source src="/img/kaajerbari.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!--- STARTS OF PROMISES---->
+
+    <div class="promises" style="background:#F5F5F5;padding-bottom: 6%;">
+        <h3 style="padding-top: 4%;"> Our Promises</h3>
+        <br>
+        <form>
+            <div class="form-row col-md-12">
+                <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                    <div class="card-pro">
+                        <img src="/Images/Verified-Professionals.png">
+                        <h4>Verified-Professionals</h4>
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                    <div class="card-pro">
+                        <img src="/Images/Hassle-Free-Service.png">
+                        <h5>Hassle Free Service</h5>
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                    <div class="card-pro">
+                        <img src="/Images/100%-Service-Guarantee.png">
+                        <h4>100% Service Guarantee</h4>
+
+                    </div>
+                </div>
+                <div class="form-group col-sm-6 col-md-3 col-lg-3">
+                    <div class="card-pro">
+                        <img src="/Images/Customer-Support.png">
+                        <h5>Customer Support</h5>
+
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <div class="services4">
+        <h4>CUSTOMER FEEDBACK</h4>
+        <br>
+    </div>
+    <div class="main-carousel mt-3" data-flickity>
+        <div class="carousel-cell1">
+            <div class="card " style="height: 20rem;">
+                <img class="card-img-top" src=" /img/t1.png" alt="Card image cap" style="height: 20rem;">
+            </div>
+        </div>
+        <div class="carousel-cell1">
+            <div class="card " style="height: 20rem;">
+                <img class="card-img-top" src=" /img/t2.png" alt="Card image cap" style="height: 20rem;">
+            </div>
+        </div>
+        <div class="carousel-cell1">
+            <div class="card " style="height: 20rem;">
+                <img class="card-img-top" src=" /img/t3.png" alt="Card image cap" style="height: 20rem;">
+            </div>
+        </div>
+        <div class="carousel-cell1">
+            <div class="card " style="height: 20rem;">
+                <img class="card-img-top" src=" /img/t4.png" alt="Card image cap" style="height: 20rem;">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ======= STARS OF REGISTRATION ======= -->
+
+    <div id="Contact">
+        <div class="card-1">
+            <div class="row col-md-12">
+                <div class="col-sm-3 col-md-6 col-lg-5 " style="margin:center;">
+                    <br>
+
+                    <h2 style="margin-top:100px; margin-left:40px; font-weight:bold; font-family: Garamond, serif">Become A Service Provider</h2>
+                    <p style="margin-left:110px; font-weight:lighten; font-family: Georgia, serif"> Be a part of an innovative service platform used by thousands of service  providers to expand their customer base. </p>
+                    <p style="margin-left:10px; font-weight:lighten; font-family: Georgia, serif"> Register today for FREE.</p>
+
+                    <button type="button" class="btn btn-primary">Register Now</button>
+                    <br>
+
+
+
+                </div>
+
+                <div class="col-sm-3 col-md-6 pl-6">
+                    <div class="container">
+
+                        <img src="/Images/team.png" alt="" style=" margin-left:50px;">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- =======  ENDS OF REGISTRATION ======= -->
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" style="background-color: dark;">
+            <div class="modal-content">
+                <div>
+                    @* <img src="/Services/home.jpeg" style="width: 100%"> *@
+                    <img src="/AllBanner/@ViewBag.PopupImage.ImageName" style="width: 100%">
+                    <div style="position: absolute;
+           top: 8px;
+           right: 16px;">
+                        <button type="button" class="close" data-dismiss="modal" style="margin-top: 2%;">&times;</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        <div class="footer-top">
+
+            <div class="container">
+
+                <div class="row col-md-12 footer-newsletter">
+
+
+                    <div class="col-lg-3">
+                        <div class="footer-contact">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li><i class="fa fa-map-marker" style="font-size:24px;color:white"></i> South Castle Level 2, House 50, Road 16, Sector 14, Uttara, Dhaka-1230 Bangladesh.</li>
+                                <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 01928888450</li>
+                                <li><i class="fa fa-phone" style="font-size:24px;color:white"></i> 09610009999</li>
+                                <li> <i class="fa fa-envelope-o" style="font-size:24px"></i>  hello@kajerbari.com</li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="footer-contact">
+                            <h4>Company</h4>
+                            <ul>
+                                <li> About us </li>
+                                <li>Blog</li>
+                                <li>Career</li>
+                                <li> Privacy Policy</li>
+                                <li>Terms & Condition</li>
+                                <li> Contact us</li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="footer-contact">
+                            <h4>Other</h4>
+                            <ul>
+                                <li> Become a Provider </li>
+                                <li>Our Services</li>
+                                <li>Our Promises</li>
+                                <li> How It Workd</li>
+                                <li>FAQ</li>
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 social-links footer-contact text-center">
+                        <h3><img src="/img/logo.jpg" alt="" width="30%" height="30%" style="margin-top:-26px;">KajerBari</h3>
+                        <br>
+                        <h4>Follow us in</h4>
+                        <a href="https://www.facebook.com/shomadhandotcom/" target="_blank" class="fa fa-facebook"></a>
+                        <a href="https://twitter.com/shomadhan" target="_blank" class="fa fa-twitter"> </a>
+
+                        <a href="https://www.linkedin.com/company/shomadhan" target="_blank" class="fa fa-linkedin"> </a>
+                        <a href="https://www.youtube.com/c/ShomadhanTube" target="_blank" class="fa fa-youtube"></a>
+                        <a href="https://www.instagram.com/shomadhandotcom/" target="_blank" class="fa fa-instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+    </footer>
+    <!-- End Footer -->
+
+
+    <script src="/js/jquery.slim.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script>
+      $(".main-carousel").flickity({
+        cellAlign:'left',
+        wrapAround:true,
+        freeScroll:true,
+        autoPlay: true,
+        pageDots: false,
+
+      })
+    </script>
+    <script>
+        $(".main-carousel1").flickity({
+          cellAlign:'left',
+          wrapAround:true,
+          freeScroll:true,
+          autoPlay: true
+
+        })
+    </script>
+    <script type="text/javascript">
+      window.addEventListener('scroll',function(){
+        var scroll=document.querySelector('.backTop');
+        scroll.classList.toggle("active",window.scrollY > 600)
+      })
+    </script>
+
+    <script>
+  $(document).ready(function(){
+      $('#staticBackdrop1').modal('show');
+  })
+    </script>
+
+</body>
+</html>

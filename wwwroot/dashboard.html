@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/responsivemembers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>KajerBari</title>
+</head>
+<body>
+    <header>
+       
+            <div class="row  bg-dark">
+                <nav class="navbar navbar-expand-lg " id="top">
+                    <a class="navbar-brand" href="index.html"><img src="img/logo.jpg" style="height: 70px; width: 70px; margin-left: 20%;"><b style="color:whitesmoke;"> KajerBari</b></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+    
+                            <li class="nav-item active">
+                                <a class="nav-item nav-link" href="index.html"></a>
+                            </li>
+                    </div>
+                </nav>
+            </div>
+       
+    </header>
+    <div class="row ">
+        <div class="col-md-2">
+            <div class="nav flex-column nav-pills bg-dark pl-2 pt-2" id="v-pills-tab" role="tablist" aria-orientation="vertical"style="height: 129%" >
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                   <h4><b style="color:yellowgreen;padding-left: 3%;">Dashboard</b></h4><br>
+                </a>
+                <h5 style="color: yellowgreen;margin-left: 8%;"><i class="fa fa-image " style="color:yellowgreen"></i>&nbsp;Banner</h5>
+             <a class="nav-link ml-4 " id="v-pills-home1-tab" data-toggle="pill" href="#v-pills-home1" role="tab" aria-controls="v-pills-home1" aria-selected="false" style="color: white;" >Carousel Banner</a> 
+             <a class="nav-link ml-4" id="v-pills-home2-tab" data-toggle="pill" href="#v-pills-home2" role="tab" aria-controls="v-pills-home2" aria-selected="false" style="color: white;">Post Banner</a>         
+             <h5 style="color: yellowgreen;margin-left: 8%;"><i class="fa fa-list " style="color: yellowgreen;"></i>&nbsp;Category</h5>
+              <a class="nav-link  ml-4" id="v-pills-category-tab" data-toggle="pill" href="#v-pills-category" role="tab" aria-controls="v-pills-category" aria-selected="false" style="color: white;">Main Category</a>
+            <a class="nav-link  ml-4" id="v-pills-subcategory-tab" data-toggle="pill" href="#v-pills-subcategory" role="tab" aria-controls="v-pills-subcategory" aria-selected="false" style="color: white;">Subcategory</a>
+            <a class="nav-link  ml-4" id="v-pills-lastcategory-tab" data-toggle="pill" href="#v-pills-lastcategory" role="tab" aria-controls="v-pills-lastcategory" aria-selected="false" style="color: white;">Packages</a>
+            <h5 style="color: yellowgreen;margin-left: 8%;"><i class="fa fa-shopping-cart " style="color: yellowgreen"></i>&nbsp;New Order</h5>
+            <a class="nav-link  ml-4" id="v-pills-order-tab" data-toggle="pill" href="#v-pills-order" role="tab" aria-controls="v-pills-order" aria-selected="false" style="color: white;">Order Summary</a>
+         </div>
+    </div>
+    <div class="col-md-8">
+    <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-pane fade" id="v-pills-home1" role="tabpanel" aria-labelledby="v-pills-home1-tab">
+            <section>
+                <div class="container ml-5">
+                    <div class="col-md-12 mt-5">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop" style="margin-left: 40%;">Add Carousel Banner</button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-8 table-responsive">
+                            <table class="table table-bordered mt-3">
+                               <thead style="background-color:orange; text-align: center;">
+                                  <tr>
+                                    <th>Banner Id</th>
+                                    <th>Picture</th>
+                                    <th>Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody style="text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop">Update</button>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop">Update</button>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop">Update</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+        
+        
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">Add Carousel Banner</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class=" col-md-8 ">
+                                <div class="form-group">
+                                    <label for="input-banner-img">Picture</label>
+                                    <input
+                                            type="file"
+                                            class="form-control-file"
+                                            id="input-banner-img"
+                                            name="picture"
+                                            value="">
+                
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div> 
+        </div>
+
+        <div class="tab-pane fade" id="v-pills-home2" role="tabpanel" aria-labelledby="v-pills-home2-tab">
+            <section>
+                <div class="container ml-5">
+                    <div class="col-md-12 mt-5">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdroppost" style="margin-left: 40%;">Add Post Banner</button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-8 table-responsive">
+                            <table class="table table-bordered mt-3">
+                                <thead style="background-color:orange; text-align: center;">
+                                  <tr>
+                                    <th>Banner Id</th>
+                                    <th>Picture</th>
+                                    <th>Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody style=" text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdroppost">Update</button>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdroppost">Update</button>
+                                        </td>
+                                  </tr>
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdroppost">Update</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+        
+        
+            <div class="modal fade" id="staticBackdroppost" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">Add Post Banner</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class=" col-md-8 ">
+                                <div class="form-group">
+                                    <label for="input-banner-img">Picture</label>
+                                    <input
+                                            type="file"
+                                            class="form-control-file"
+                                            id="input-banner-img"
+                                            name="picture"
+                                            value="">
+                
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div> 
+        </div>
+        <div class="tab-pane fade" id="v-pills-category" role="tabpanel" aria-labelledby="v-pills-category-tab">
+            <section>
+                <div class="container ml-5">
+                    <div class="col-md-12 mt-5">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop1" style="margin-left: 43%;">Add Category</button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-8 table-responsive">
+                            <table class="table table-bordered mt-3">
+                                <thead style="background-color:yellow;text-align: center;">
+                                  <tr>
+                                    <th>Category Name</th>
+                                    <th>Icon</th>
+                                    <th>Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody style=" text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop1">Update</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+        
+            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">Add Category</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class=" col-md-8 ">
+                                <div class="form-group">
+                                    <label for="input-title">Name</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="input-title"
+                                            name="title"
+                                            value=""
+                                            aria-describedby="titleHelp"
+                                            placeholder="Enter title">
+                
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-banner-img">Icon</label>
+                                    <input
+                                            type="file"
+                                            class="form-control-file"
+                                            id="input-banner-img"
+                                            name="picture"
+                                            value="">
+                
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-subcategory" role="tabpanel" aria-labelledby="v-pills-subcategory-tab">
+            <section>
+                <div class="container ml-5">
+                    <div class="col-md-12 mt-5">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop2" style="margin-left: 45%;">Add Sub Category</button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class=" table-responsive">
+                            <table class="table table-bordered mt-3">
+                                <thead style="background-color:yellow;text-align: center;">
+                                  <tr>
+                                    <th>Category Name</th>
+                                    <th>Sub Category Name</th>
+                                    <th>Icon</th>
+                                    <th>Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody style=" text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg" class="big_img"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop2">Update</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                    
+                </div>
+            </section>
+        
+            <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">Add Sub Category</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class=" col-md-8 ">
+                                <div class="form-group ">
+                                    <label for="exampleFormControlSelect1">Category</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                      <option>Lcd</option>
+                                      <option>Tv</option>
+                                      <option>Led</option>
+                                     
+                                    </select>
+                                  </div>
+                                <div class="form-group">
+                                    <label for="input-title">Name</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="input-title"
+                                            name="title"
+                                            value=""
+                                            aria-describedby="titleHelp"
+                                            placeholder="Enter title">
+                
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-banner-img">Icon</label>
+                                    <input
+                                            type="file"
+                                            class="form-control-file"
+                                            id="input-banner-img"
+                                            name="picture"
+                                            value="">
+                
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+        
+        </div>
+        <div class="tab-pane fade" id="v-pills-lastcategory" role="tabpanel" aria-labelledby="v-pills-lastcategory-tab">
+            <section>
+                <div class="container">
+                    <div class="col-md-12 mt-5">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#staticBackdrop3" style="margin-left: 45%;">Add Last Category</button>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12 table-responsive">
+                            <table class="table table-bordered mt-3">
+                                <thead style="background-color:yellow;text-align: center;">
+                                  <tr>
+                                    <th>Category Name</th>
+                                    <th>Sub Category Name</th>
+                                    <th>Last Category Name</th>
+                                    <th>Icon</th>
+                                    <th>Update</th>
+                                  </tr>
+                                </thead>
+                                <tbody style=" text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td>01</td>
+                                    <td>01</td>
+                                    <td><img src="Home/dry.jpg"></td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#staticBackdrop3">Update</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+        
+            <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 30%;">Add Last Category</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class=" col-md-8 ">
+                                <div class="form-group ">
+                                    <label for="exampleFormControlSelect1">Category</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                      <option>Lcd</option>
+                                      <option>Tv</option>
+                                      <option>Led</option>
+                                     
+                                    </select>
+                                  </div>
+                                  <div class="form-group ">
+                                    <label for="exampleFormControlSelect1">Sub Category</label>
+                                    <select class="form-control" id="exampleFormControlSelect1">
+                                      <option>Lcd</option>
+                                      <option>Tv</option>
+                                      <option>Led</option>
+                                     
+                                    </select>
+                                  </div>
+                                <div class="form-group">
+                                    <label for="input-title">Size</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="input-title"
+                                            name="title"
+                                            value=""
+                                            aria-describedby="titleHelp"
+                                            placeholder="Enter title">
+                
+                                </div>
+                                <div class="form-group">
+                                    <label for="input-price">Price</label>
+                                    <input
+                                            type="number"
+                                            class="form-control"
+                                            id="input-price"
+                                            name="price"
+                                            value=""
+                                            aria-describedby="priceHelp"
+                                            placeholder="Enter price">
+                
+                                </div>
+                               
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                           </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+        <div class="tab-pane fade" id="v-pills-order" role="tabpanel" aria-labelledby="v-pills-order-tab">
+            <section>
+                <div class="container">
+                    <div class="col-md-12 mt-5">
+                        <h4 style="color: orange;margin-left: 40%;">Order Summary</h4>
+                      
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-6 table-responsive">
+                            <table class="table table-bordered mt-3">
+                                <thead style="background-color:orange; text-align: center;">
+                                  <tr>
+                                    <th>Order Id</th>
+                                    <th>Show Detaila</th>
+                                  </tr>
+                                </thead>
+                                <tbody style=" text-align: center;">
+                                  <tr>
+                                    <td>01</td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger  " data-toggle="modal" data-target="#staticBackdrop4">Show</button>
+                                        </td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                        </div>
+            
+                    </div>
+                </div>
+            </section>
+        
+            <div class="modal fade" id="staticBackdrop4" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content ">
+                    <div class="modal-header">
+                      <h4 class="modal-title" id="staticBackdropLabel" style="padding-left: 38%;color: orange;">Order Summary</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      </div>
+                    <div class="modal-body">
+                        <form>
+                          <div class="form-row col-md-12">
+                            <div class="form-group col-md-6">
+                                
+                                  <h4 style="padding-top: 5%;padding-left: 5%;color: orange;">Schedule </h4>
+                                  <div class="form-group col-md-7">
+                                    <h6 style="color: yellowgreen;" class="ml-2">Date:</h6>
+                                    <span class="cart-total-title ml-2">12.12.2020</span>
+                                          </div>
+                                          
+        
+                                  <h4 style="padding-top: 3%;padding-left: 5%;color: orange;">Contact Infomation </h4>
+                                     <div class="form-group col-md-7">
+                                      <h6 style="color: yellowgreen;" class="ml-2">Name:</h6>
+                                        <span class="cart-total-title ml-2">Mr.X</span>
+                                        <h6 style="color: yellowgreen;" class="ml-2 mt-1">Phone Number:</h6>
+                                         <span class="cart-total-title ml-2">01888229394</span>
+                                         <h6 style="color: yellowgreen;" class="ml-2 mt-1">Address:</h6>
+                                         <span class="cart-total-title ml-2">Nasirabad</span>
+                                         <h6 style="color: yellowgreen;" class="ml-2 mt-1">Area:</h6>
+                                         <span class="cart-total-title ml-2">Nasirabad</span>
+                                          </div>
+                                   
+                                </div>
+                                <div class="form-group col-md-4 mt-2">
+                                    <h4 class="mt-3 ml-2"style="color:orange">Order Details</h4> <br>
+                                    <h6 style="color: grey;" class="ml-3">LCD/LED TV Repair sERVICE</h6>
+                                    <div> 
+                                      <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
+                                      <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span>
+                                    </div>
+                                    <div> 
+                                      <span class="cart-size cart-column col-md-2"style="color:grey">22"-39"</span>
+                                      <span class="cart-price cart-column col-md-2 ml-4" style="color: grey;">$19.99</span>
+                                    </div>
+                                    <hr>
+                                    <div class="cart-total mt-3">
+                                      <span class="cart-total-title col-md-2">Total</span>
+                                      <span class="cart-total-price col-md-2" style="margin-left: 18%;">$399.97</span>
+                                      <span class="cart-size cart-column col-md-2">Discount</span>
+                                      <span class="cart-price cart-column col-md-2 ml-3" >$19.99</span>
+                                    </div>
+                                    <hr>
+                                    <div class="cart-total mt-3">
+                                      <strong class="cart-total-title col-md-2">SubTotal</strong>
+                                      <span class="cart-total-price col-md-2 ml-3" >$399.97</span>
+                                    </div>
+                               
+                                  </div>
+            
+            </div>
+                      
+                      </form> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+    </div>
+      </div>
+</div>
+   
+    <script src="js/bootstrap.min.js"></script>
+    <script src="zoomsl.js" type="text/javascript"></script>
+
+    
+    </body>
+    </html>
+    <script type="text/javascript">
+      $(document).ready(function(){
+          $(".big_img").imagezoomsl({
+              zoomrange:[3,3]
+          })
+      })
+      </script>
